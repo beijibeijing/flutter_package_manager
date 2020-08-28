@@ -1,5 +1,5 @@
 Fork from https://github.com/Dart-for-Apps/flutter_package_manager
-# Add packageInfo's versionName and versionCode
+# Add PackageInfo's versionName and versionCode
 edit flutter_package_manager/android/src/main/kotlin/dev/wurikiji/flutter_package_manager/FlutterPackageManagerPlugin.kt
 # Package Manager for Android
 
