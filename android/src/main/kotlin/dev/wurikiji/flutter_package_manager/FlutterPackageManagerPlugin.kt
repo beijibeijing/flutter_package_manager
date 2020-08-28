@@ -2,6 +2,7 @@ package dev.wurikiji.flutter_package_manager
 
 import android.content.Context
 import android.content.pm.ApplicationInfo
+import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Canvas
@@ -85,10 +86,14 @@ class FlutterPackageManagerPlugin: MethodCallHandler {
       val appName: String? = sContext!!.packageManager.getApplicationLabel(appInfo)?.toString()
       val appIcon: Drawable = sContext!!.packageManager.getApplicationIcon(appInfo?.packageName) ?: sContext!!.getDrawable(R.drawable.ic_launcher)
       val byteImage = drawableToBase64String(appIcon)
+      var packageInfo:PackageInfo? = sContext!!.packageManager
+              .getPackageInfo(packageName,PackageManager.GET_ACTIVITIES)
 
       info!!["packageName"] = appInfo?.packageName
       info["appName"] = appName
       info["appIcon"] = byteImage
+      info!!["versionName"] = packageInfo?.versionName
+      info!!["versionCode"] = packageInfo?.versionCode
     } catch (e: Exception) {
       Log.i(TAG, "$packageName not installed: $e")
         info = null
