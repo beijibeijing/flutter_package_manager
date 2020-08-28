@@ -1,3 +1,6 @@
+Fork from https://github.com/Dart-for-Apps/flutter_package_manager
+# Add packageInfo's versionName and versionCode
+
 # Package Manager for Android
 
 This plugin offers the ability of android's `PackageManager`.
